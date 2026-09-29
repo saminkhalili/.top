@@ -4,67 +4,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0d12">
-  <meta name="description" content="Sign in to your Blockwise learning lab.">
-  <title>Sign in — Blockwise</title>
+  <meta name="description" content="Sign in to Samin.">
+  <title>Sign in — Samin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <main class="login-page">
-    <section class="welcome-panel" aria-label="Welcome to Blockwise">
+  <main class="login-page" id="login-screen">
+    <section class="welcome-panel" aria-label="Welcome to Samin">
       <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-      <a class="brand" href="#" aria-label="Blockwise home"><span class="brand-mark">B<span>.</span></span><span>blockwise</span></a>
+      <a class="brand" href="#" aria-label="Samin home"><span class="brand-mark">S</span><span>samin</span></a>
       <div class="welcome-copy">
-        <p class="eyebrow"><span class="live-dot"></span> YOUR LEARNING LAB</p>
-        <h1>Build what<br>you <em>believe in.</em></h1>
-        <p class="welcome-text">Pick up where you left off. Your next idea is only a few lines of code away.</p>
-        <div class="snippet" aria-hidden="true">
-          <div class="snippet-top"><span><i></i><i></i><i></i></span><span>your-next-build.js</span><span class="saved">● saved</span></div>
-          <pre><span class="purple">const</span> idea = <span class="yellow">"something useful"</span>;
-
-<span class="purple">while</span> (curious) {
-  <span class="green">keepBuilding</span>(idea);
-}</pre>
-        </div>
+        <h1>My website<br>to practice<br><em>front-end coding.</em></h1>
       </div>
-      <div class="welcome-foot"><span><b>01</b> Learn a little</span><span><b>02</b> Build a lot</span><span class="foot-mark">✳ made for the curious</span></div>
     </section>
 
     <section class="form-panel" aria-label="Account sign in">
-      <div class="mobile-brand"><a class="brand" href="#"><span class="brand-mark">B<span>.</span></span><span>blockwise</span></a></div>
+      <div class="mobile-brand"><a class="brand" href="#"><span class="brand-mark">S</span><span>samin</span></a></div>
       <div class="form-wrap">
-        <a class="back-link" href="#"><span>←</span> Back to Blockwise</a>
         <div class="form-heading">
-          <p class="eyebrow">GOOD TO SEE YOU AGAIN</p>
-          <h2 id="form-title">Welcome back.</h2>
-          <p id="form-subtitle">Sign in to continue your learning journey.</p>
+          <h2 id="form-title">Welcome.</h2>
         </div>
 
         <form id="login-form" novalidate>
-          <div class="field-group" id="email-group">
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <div class="field-group" id="username-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter your username" autocomplete="username" required>
             <span class="field-error" aria-live="polite"></span>
           </div>
           <div class="field-group" id="password-group">
-            <div class="label-row"><label for="password">Password</label><button class="text-button" id="forgot-link" type="button">Forgot password?</button></div>
+            <div class="label-row"><label for="password">Password</label></div>
             <div class="password-wrap"><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="show-password" type="button" aria-label="Show password">Show</button></div>
             <span class="field-error" aria-live="polite"></span>
           </div>
-          <label class="remember"><input type="checkbox" name="remember" checked><span class="checkmark"></span><span>Keep me signed in</span></label>
-          <button class="submit-button" type="submit"><span id="submit-label">Sign in to your lab</span><span class="button-arrow">↗</span></button>
+          <button class="submit-button" type="submit"><span id="submit-label">Enter</span><span class="button-arrow">↗</span></button>
           <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
         </form>
-
-        <p class="signup-prompt" id="signup-prompt">New to Blockwise? <button class="text-button" type="button" id="signup-link">Create an account</button></p>
-        <div class="secure-note"><span class="lock-icon">▣</span><span>Your account and learning progress stay yours.</span></div>
       </div>
-      <div class="form-foot"><span>© <span id="year"></span> Blockwise</span><a href="#privacy">Privacy</a><a href="#help">Need help?</a></div>
     </section>
   </main>
-  <div class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

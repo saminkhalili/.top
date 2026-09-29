@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a8d5f3">
+  <meta name="description" content="Your Blockwise space.">
+  <title>Your space — Blockwise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="home-mode">
+  <section class="home-screen" id="home-screen" aria-label="Your Blockwise home">
+    <aside class="sapphire-panel" aria-label="Sapphire artwork">
+      <div class="gem-stage" aria-hidden="true"><span class="gem-aura"></span><span class="gem-orbit gem-orbit-one"></span><span class="gem-orbit gem-orbit-two"></span>
+        <svg class="sapphire-art" viewBox="0 0 440 450" role="img" aria-label="A large faceted blue sapphire gemstone">
+          <defs>
+            <linearGradient id="gem-base" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c5f5ff"/><stop offset=".18" stop-color="#4ba9ff"/><stop offset=".42" stop-color="#1c5bd2"/><stop offset=".68" stop-color="#102b90"/><stop offset="1" stop-color="#75d9ff"/></linearGradient>
+            <linearGradient id="gem-left" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ee8ff"/><stop offset=".48" stop-color="#286eda"/><stop offset="1" stop-color="#07175b"/></linearGradient>
+            <linearGradient id="gem-right" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#70d6ff"/><stop offset=".45" stop-color="#1744ad"/><stop offset="1" stop-color="#06113d"/></linearGradient>
+            <linearGradient id="gem-flash" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1ffff"/><stop offset=".45" stop-color="#a5edff"/><stop offset="1" stop-color="#398fe8"/></linearGradient>
+            <filter id="gem-shadow" x="-40%" y="-35%" width="180%" height="190%"><feGaussianBlur in="SourceAlpha" stdDeviation="15"/><feOffset dy="18"/><feComponentTransfer><feFuncA type="linear" slope=".58"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <clipPath id="gem-cut"><path d="M96 42h248l69 91-48 177-145 94L75 310 27 133z"/></clipPath>
+          </defs>
+          <g filter="url(#gem-shadow)">
+            <path d="M96 42h248l69 91-48 177-145 94L75 310 27 133z" fill="url(#gem-base)" stroke="#cbf5ff" stroke-opacity=".78" stroke-width="3"/>
+            <g clip-path="url(#gem-cut)">
+              <path d="M96 42h248l-39 88H135z" fill="url(#gem-flash)"/>
+              <path d="M27 133 96 42l39 88-64 51z" fill="#61caff"/>
+              <path d="m344 42 69 91-64 48-44-51z" fill="#8de4ff"/>
+              <path d="m135 130 85 0 0 185-85-185z" fill="#2f84ed"/>
+              <path d="m220 130 85 0-85 185z" fill="#75d9ff"/>
+              <path d="m71 181 64-51 85 185-145-5z" fill="url(#gem-left)"/>
+              <path d="m305 130 44 42 64-39-48 177-145 5z" fill="url(#gem-right)"/>
+              <path d="m75 310 145 5 145-5-145 94z" fill="#0c277e"/>
+              <path d="m75 310 145 5-82 55z" fill="#4eaff7"/>
+              <path d="m220 315 145-5-83 60z" fill="#1a54bb"/>
+              <path d="M96 42h248M135 130h170M71 181l64-51m170 0 44 42m-129-42v185M75 310l290 0M220 315l0 80" fill="none" stroke="#e4fbff" stroke-opacity=".55" stroke-width="2"/>
+              <path d="m83 76 42 47" stroke="#fff" stroke-opacity=".55" stroke-width="8" stroke-linecap="round"/>
+            </g>
+            <text class="gem-name" x="220" y="233" text-anchor="middle" dominant-baseline="middle">Negin</text>
+          </g>
+        </svg>
+      </div>
+    </aside>
+    <div class="home-canvas">
+      <header class="home-header"><div class="home-user"><span class="user-name">negin</span><button id="sign-out" type="button">Sign out <span>↗</span></button></div></header>
+      <div class="empty-workspace" id="home">
+        <section class="pizza-panel" aria-labelledby="pizza-question">
+          <div class="pizza-photo"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85" alt="Fresh pizza topped with cheese and basil"></div>
+          <p class="pizza-question" id="pizza-question">pizza time? 🍕</p>
+          <div class="pizza-actions" id="pizza-actions" aria-label="Choose yes or no">
+            <button class="pizza-yes" id="pizza-yes" type="button">Yes</button>
+            <button class="pizza-no" id="pizza-no" type="button">No</button>
+          </div>
+          <p class="day-prompt" id="day-prompt" hidden>Which day would you like to go out?<br>tell me on telegram</p>
+        </section>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

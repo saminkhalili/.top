@@ -1,105 +1,123 @@
-const form = document.querySelector('#login-form')
-const email = document.querySelector('#email')
-const password = document.querySelector('#password')
-const passwordGroup = document.querySelector('#password-group')
-const emailGroup = document.querySelector('#email-group')
-const passwordToggle = document.querySelector('.show-password')
-const forgotLink = document.querySelector('#forgot-link')
-const signupLink = document.querySelector('#signup-link')
-const formTitle = document.querySelector('#form-title')
-const formSubtitle = document.querySelector('#form-subtitle')
-const submitLabel = document.querySelector('#submit-label')
-const prompt = document.querySelector('#signup-prompt')
-const message = document.querySelector('#form-message')
-let mode = 'login'
+const loginForm = document.querySelector('#login-form')
 
-function setMode(nextMode) {
-  mode = nextMode
-  form.classList.toggle('is-reset', mode === 'reset')
-  formTitle.textContent = mode === 'reset' ? 'Reset your password.' : mode === 'signup' ? 'Start building.' : 'Welcome back.'
-  formSubtitle.textContent = mode === 'reset'
-    ? 'We’ll send you a link to get back into your account.'
-    : mode === 'signup'
-      ? 'Create an account and start your learning journey.'
-      : 'Sign in to continue your learning journey.'
-  submitLabel.textContent = mode === 'reset' ? 'Send reset link' : mode === 'signup' ? 'Create my account' : 'Sign in to your lab'
-  forgotLink.hidden = mode !== 'login'
-  if (mode === 'signup') {
-    prompt.innerHTML = 'Already have an account? <button class="text-button" type="button" id="signup-link">Sign in</button>'
-  } else if (mode === 'reset') {
-    prompt.innerHTML = 'Remember your password? <button class="text-button" type="button" id="signup-link">Back to sign in</button>'
-  } else if (mode === 'login') {
-    prompt.innerHTML = 'New to Blockwise? <button class="text-button" type="button" id="signup-link">Create an account</button>'
-  }
-  const promptButton = document.querySelector('#signup-link')
-  if (promptButton) promptButton.addEventListener('click', () => setMode(mode === 'login' ? 'signup' : 'login'))
-  password.autocomplete = mode === 'signup' ? 'new-password' : 'current-password'
-  password.placeholder = mode === 'signup' ? 'Create a password (8+ characters)' : 'Enter your password'
-  passwordGroup.querySelector('label').textContent = mode === 'signup' ? 'Create password' : 'Password'
-  message.textContent = ''
-  message.classList.remove('error')
-  clearErrors()
-  form.reset()
-  document.querySelector('.remember input').checked = true
-}
+if (loginForm) {
+  const username = document.querySelector('#username')
+  const password = document.querySelector('#password')
+  const usernameGroup = document.querySelector('#username-group')
+  const passwordGroup = document.querySelector('#password-group')
+  const message = document.querySelector('#form-message')
+  const passwordToggle = document.querySelector('.show-password')
 
-function clearErrors() {
-  for (const group of [emailGroup, passwordGroup]) {
+  function clearError(group) {
     group.classList.remove('invalid')
     group.querySelector('.field-error').textContent = ''
   }
+
+  function setError(group, text) {
+    group.classList.add('invalid')
+    group.querySelector('.field-error').textContent = text
+  }
+
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    clearError(usernameGroup)
+    clearError(passwordGroup)
+    message.textContent = ''
+    message.classList.remove('error')
+
+    const userIsValid = username.value.trim().toLowerCase() === 'negin'
+    const passwordIsValid = password.value === 'negin'
+
+    if (!username.value.trim()) setError(usernameGroup, 'Enter your username.')
+    if (!password.value) setError(passwordGroup, 'Enter your password.')
+    if (!username.value.trim() || !password.value) return
+
+    if (userIsValid && passwordIsValid) {
+      window.location.href = 'home.html'
+      return
+    }
+
+    message.textContent = 'That username or password doesn’t match. Try again.'
+    message.classList.add('error')
+  })
+
+  passwordToggle.addEventListener('click', () => {
+    const shouldShow = password.type === 'password'
+    password.type = shouldShow ? 'text' : 'password'
+    passwordToggle.textContent = shouldShow ? 'Hide' : 'Show'
+    passwordToggle.setAttribute('aria-label', shouldShow ? 'Hide password' : 'Show password')
+  })
+
+  username.addEventListener('input', () => clearError(usernameGroup))
+  password.addEventListener('input', () => clearError(passwordGroup))
 }
 
-function setError(group, text) {
-  group.classList.add('invalid')
-  group.querySelector('.field-error').textContent = text
+const year = document.querySelector('#year')
+if (year) year.textContent = new Date().getFullYear()
+
+const signOutButton = document.querySelector('#sign-out')
+if (signOutButton) signOutButton.addEventListener('click', () => { window.location.href = 'index.html' })
+
+const pizzaNo = document.querySelector('#pizza-no')
+const pizzaYes = document.querySelector('#pizza-yes')
+const pizzaQuestion = document.querySelector('#pizza-question')
+const pizzaActions = document.querySelector('#pizza-actions')
+const dayPrompt = document.querySelector('#day-prompt')
+const workspace = document.querySelector('.empty-workspace')
+const sapphireArt = document.querySelector('.sapphire-art')
+const sapphirePanel = document.querySelector('.sapphire-panel')
+
+if (pizzaNo && pizzaYes && pizzaQuestion && workspace) {
+  function moveNoButton(event) {
+    if (pizzaNo.parentElement !== workspace) workspace.appendChild(pizzaNo)
+
+    const maxLeft = workspace.clientWidth - pizzaNo.offsetWidth - 14
+    const maxTop = workspace.clientHeight - pizzaNo.offsetHeight - 14
+    const yesRect = pizzaYes.getBoundingClientRect()
+    const workspaceRect = workspace.getBoundingClientRect()
+    const yesLeft = yesRect.left - workspaceRect.left
+    const yesTop = yesRect.top - workspaceRect.top
+    let left = 0
+    let top = 0
+    let badPosition = true
+
+    for (let attempt = 0; attempt < 80 && badPosition; attempt += 1) {
+      left = 7 + Math.random() * Math.max(0, maxLeft - 7)
+      top = 7 + Math.random() * Math.max(0, maxTop - 7)
+      const overlapsYes = !(left + pizzaNo.offsetWidth < yesLeft - 18 || left > yesLeft + pizzaYes.offsetWidth + 18 || top + pizzaNo.offsetHeight < yesTop - 15 || top > yesTop + pizzaYes.offsetHeight + 15)
+      const candidateLeft = workspaceRect.left + left
+      const candidateTop = workspaceRect.top + top
+      const nearestX = event && Math.max(candidateLeft, Math.min(event.clientX, candidateLeft + pizzaNo.offsetWidth))
+      const nearestY = event && Math.max(candidateTop, Math.min(event.clientY, candidateTop + pizzaNo.offsetHeight))
+      const nearPointer = event && Math.hypot(nearestX - event.clientX, nearestY - event.clientY) < 170
+      badPosition = overlapsYes || nearPointer
+    }
+
+    pizzaNo.style.left = `${left}px`
+    pizzaNo.style.top = `${top}px`
+  }
+
+  pizzaNo.addEventListener('mouseenter', moveNoButton)
+  pizzaNo.addEventListener('click', moveNoButton)
+  workspace.addEventListener('mousemove', (event) => {
+    if (pizzaNo.parentElement !== workspace) return
+    const rect = pizzaNo.getBoundingClientRect()
+    const nearestX = Math.max(rect.left, Math.min(event.clientX, rect.right))
+    const nearestY = Math.max(rect.top, Math.min(event.clientY, rect.bottom))
+    if (Math.hypot(event.clientX - nearestX, event.clientY - nearestY) < 105) moveNoButton(event)
+  })
+
+  pizzaYes.addEventListener('click', () => {
+    pizzaQuestion.textContent = 'Pizza time it is! 🍕❤️'
+    pizzaActions.hidden = true
+    pizzaNo.hidden = true
+    if (dayPrompt) dayPrompt.hidden = false
+    if (sapphireArt) sapphireArt.classList.add('ruby-mode')
+    if (sapphirePanel) {
+      sapphirePanel.classList.add('ruby-mode')
+      const caption = sapphirePanel.querySelector('.sapphire-caption p')
+      if (caption) caption.textContent = 'THE RUBY SPACE'
+    }
+  })
+
 }
-
-document.querySelector('.show-password').addEventListener('click', () => {
-  const show = password.type === 'password'
-  password.type = show ? 'text' : 'password'
-  passwordToggle.textContent = show ? 'Hide' : 'Show'
-  passwordToggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password')
-})
-
-forgotLink.addEventListener('click', () => setMode('reset'))
-signupLink.addEventListener('click', () => setMode('signup'))
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault()
-  clearErrors()
-  message.textContent = ''
-  message.classList.remove('error')
-  let valid = true
-
-  if (!email.value.trim() || !email.validity.valid) {
-    setError(emailGroup, 'Enter a valid email address.')
-    valid = false
-  }
-  if (mode !== 'reset' && !password.value) {
-    setError(passwordGroup, 'Enter your password.')
-    valid = false
-  } else if (mode === 'signup' && password.value.length < 8) {
-    setError(passwordGroup, 'Use at least 8 characters.')
-    valid = false
-  }
-  if (!valid) return
-
-  if (mode === 'reset') {
-    message.textContent = 'If there’s an account for this email, a reset link is on its way.'
-  } else if (mode === 'signup') {
-    message.textContent = 'Your account form is ready to connect to Blockwise.'
-  } else {
-    message.textContent = 'Your sign-in form is ready to connect to Blockwise.'
-  }
-})
-
-email.addEventListener('input', () => {
-  emailGroup.classList.remove('invalid')
-  emailGroup.querySelector('.field-error').textContent = ''
-})
-password.addEventListener('input', () => {
-  passwordGroup.classList.remove('invalid')
-  passwordGroup.querySelector('.field-error').textContent = ''
-})
-document.querySelector('#year').textContent = new Date().getFullYear()
