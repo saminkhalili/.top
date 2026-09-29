@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0d12">
-  <meta name="description" content="Learn to code and understand blockchain by building real projects, one small step at a time.">
-  <title>Blockwise — Learn by building</title>
+  <meta name="description" content="Sign in to your Blockwise learning lab.">
+  <title>Sign in — Blockwise</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,85 +13,58 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="announcement"><span class="status-dot"></span> Open lab · New smart contract practice path <a href="#paths">Take a look <b>↗</b></a></div>
-  <header class="header" id="top">
-    <a class="brand" href="#top" aria-label="Blockwise home"><span class="brand-mark">B<span>.</span></span><span>blockwise</span></a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#paths">Learning paths</a><a href="#projects">Projects</a><a href="#method">How it works</a><a href="#notes">Notes</a>
-    </nav>
-    <button class="saved-button" aria-label="Your learning queue"><span>My lab</span><span class="saved-count">0</span></button>
-  </header>
+  <main class="login-page">
+    <section class="welcome-panel" aria-label="Welcome to Blockwise">
+      <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+      <a class="brand" href="#" aria-label="Blockwise home"><span class="brand-mark">B<span>.</span></span><span>blockwise</span></a>
+      <div class="welcome-copy">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR LEARNING LAB</p>
+        <h1>Build what<br>you <em>believe in.</em></h1>
+        <p class="welcome-text">Pick up where you left off. Your next idea is only a few lines of code away.</p>
+        <div class="snippet" aria-hidden="true">
+          <div class="snippet-top"><span><i></i><i></i><i></i></span><span>your-next-build.js</span><span class="saved">● saved</span></div>
+          <pre><span class="purple">const</span> idea = <span class="yellow">"something useful"</span>;
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero-photo"></div><div class="hero-grid"></div><div class="hero-shade"></div>
-      <div class="hero-content">
-        <p class="eyebrow"><span class="eyebrow-mark">✳</span> Learn by building</p>
-        <h1>Write the code.<br>Understand the <em>chain.</em></h1>
-        <p class="hero-text">A hands-on place to practice web development and blockchain. Start small, build real things, and see how it all fits together.</p>
-        <div class="hero-buttons"><a class="button button-lime" href="#paths">Explore learning paths <span>↗</span></a><a class="story-link" href="#method"><span class="play-icon">▶</span> How Blockwise works</a></div>
-        <div class="hero-proof"><span><b>01</b> Learn the basics</span><span><b>02</b> Build a project</span><span><b>03</b> Make it yours</span></div>
+<span class="purple">while</span> (curious) {
+  <span class="green">keepBuilding</span>(idea);
+}</pre>
+        </div>
       </div>
-      <div class="code-window" aria-label="Code sample decoration"><div class="window-top"><span class="window-dots"><i></i><i></i><i></i></span><span>first-contract.sol</span><span class="window-status">● live</span></div><pre><span class="code-purple">contract</span> <span class="code-green">HelloBlock</span> {
-  <span class="code-purple">string public</span> message =
-    <span class="code-yellow">"hello, blockwise"</span>;
-
-  <span class="code-purple">function</span> <span class="code-green">sayHello</span>() <span class="code-purple">public view</span>
-    <span class="code-purple">returns</span> (<span class="code-purple">string memory</span>) {
-      <span class="code-purple">return</span> message;
-  }
-}<span class="cursor">▍</span></pre></div>
-      <a class="scroll-cue" href="#paths">Scroll to explore <span>↓</span></a>
-      <span class="hero-caption">Your next idea starts here.</span>
+      <div class="welcome-foot"><span><b>01</b> Learn a little</span><span><b>02</b> Build a lot</span><span class="foot-mark">✳ made for the curious</span></div>
     </section>
 
-    <section class="section paths" id="paths">
-      <div class="section-heading"><p class="eyebrow">Pick a place to start</p><h2>Choose your next build.</h2><p>Clear learning paths turn big ideas into small, doable steps.</p></div>
-      <div class="path-grid">
-        <a class="path-card" href="#projects"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1000&q=85" alt="Code displayed on a computer screen" loading="lazy"><span class="path-shade"></span><span class="path-number">01 / FRONTEND</span><div class="path-copy"><span class="path-note">Make ideas interactive</span><h3>Web development</h3><span class="path-link">HTML · CSS · JavaScript <b>↗</b></span></div></a>
-        <a class="path-card" href="#projects"><img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1000&q=85" alt="Digital blockchain network illustration" loading="lazy"><span class="path-shade"></span><span class="path-number">02 / SMART CONTRACTS</span><div class="path-copy"><span class="path-note">Code that runs on-chain</span><h3>Solidity & contracts</h3><span class="path-link">Solidity · EVM · Testing <b>↗</b></span></div></a>
-        <a class="path-card" href="#projects"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=85" alt="Connected world at night" loading="lazy"><span class="path-shade"></span><span class="path-number">03 / WEB3 BASICS</span><div class="path-copy"><span class="path-note">See how the pieces connect</span><h3>Blockchain foundations</h3><span class="path-link">Wallets · Blocks · Networks <b>↗</b></span></div></a>
+    <section class="form-panel" aria-label="Account sign in">
+      <div class="mobile-brand"><a class="brand" href="#"><span class="brand-mark">B<span>.</span></span><span>blockwise</span></a></div>
+      <div class="form-wrap">
+        <a class="back-link" href="#"><span>←</span> Back to Blockwise</a>
+        <div class="form-heading">
+          <p class="eyebrow">GOOD TO SEE YOU AGAIN</p>
+          <h2 id="form-title">Welcome back.</h2>
+          <p id="form-subtitle">Sign in to continue your learning journey.</p>
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="field-group" id="email-group">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <div class="field-group" id="password-group">
+            <div class="label-row"><label for="password">Password</label><button class="text-button" id="forgot-link" type="button">Forgot password?</button></div>
+            <div class="password-wrap"><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="show-password" type="button" aria-label="Show password">Show</button></div>
+            <span class="field-error" aria-live="polite"></span>
+          </div>
+          <label class="remember"><input type="checkbox" name="remember" checked><span class="checkmark"></span><span>Keep me signed in</span></label>
+          <button class="submit-button" type="submit"><span id="submit-label">Sign in to your lab</span><span class="button-arrow">↗</span></button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="signup-prompt" id="signup-prompt">New to Blockwise? <button class="text-button" type="button" id="signup-link">Create an account</button></p>
+        <div class="secure-note"><span class="lock-icon">▣</span><span>Your account and learning progress stay yours.</span></div>
       </div>
+      <div class="form-foot"><span>© <span id="year"></span> Blockwise</span><a href="#privacy">Privacy</a><a href="#help">Need help?</a></div>
     </section>
-
-    <section class="section projects" id="projects">
-      <div class="section-top"><div><p class="eyebrow">Practice makes progress</p><h2>Small projects. Real skills.</h2><p>Follow a guide, experiment in the browser, and keep what you make.</p></div><a class="under-link" href="#projects">Browse all projects <span>↗</span></a></div>
-      <div class="project-grid">
-        <article class="project-card"><div class="project-image image-code"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=850&q=85" alt="Developers working together" loading="lazy"><span class="tag">START HERE</span><span class="project-glyph">&lt;/&gt;</span><button class="save-button">＋ Add to my lab</button></div><div class="project-info"><div><p class="project-type">HTML · CSS · 45 MIN</p><h3>Build your first landing page</h3><p>Turn a blank page into a site you can share.</p></div><span class="level">01</span></div></article>
-        <article class="project-card"><div class="project-image image-chain"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=850&q=85" alt="Green lines of code on a screen" loading="lazy"><span class="tag">SMART CONTRACTS</span><span class="project-glyph">{ }</span><button class="save-button">＋ Add to my lab</button></div><div class="project-info"><div><p class="project-type">SOLIDITY · 60 MIN</p><h3>Write a tiny token contract</h3><p>Learn the shape of a contract by making one.</p></div><span class="level">02</span></div></article>
-        <article class="project-card"><div class="project-image image-wallet"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=850&q=85" alt="Rows of connected computer servers" loading="lazy"><span class="tag">WEB3 BASICS</span><span class="project-glyph">⛓</span><button class="save-button">＋ Add to my lab</button></div><div class="project-info"><div><p class="project-type">JAVASCRIPT · 30 MIN</p><h3>Connect a wallet safely</h3><p>Understand what a wallet does in a web app.</p></div><span class="level">03</span></div></article>
-        <article class="project-card"><div class="project-image image-terminal"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=850&q=85" alt="Close up of a circuit board" loading="lazy"><span class="tag">DEBUGGING</span><span class="project-glyph">⌘</span><button class="save-button">＋ Add to my lab</button></div><div class="project-info"><div><p class="project-type">TOOLS · 20 MIN</p><h3>Get comfortable with Git</h3><p>Save versions and undo changes with confidence.</p></div><span class="level">04</span></div></article>
-      </div>
-    </section>
-
-    <section class="section method" id="method">
-      <div class="method-intro"><p class="eyebrow">A better way to learn</p><h2>Less watching.<br><em>More making.</em></h2><p>Programming clicks when you use it. Blockwise puts a friendly practice space next to every lesson, so you can try an idea while it’s fresh.</p><a class="button button-outline" href="#projects">Try a project <span>↗</span></a></div>
-      <div class="method-steps"><article><span>01</span><div><h3>Learn one idea</h3><p>Short explanations that get to the point, with plain-language examples.</p></div></article><article><span>02</span><div><h3>Try it yourself</h3><p>Practice in small steps. Change the code and see what happens.</p></div></article><article><span>03</span><div><h3>Build something real</h3><p>Bring the pieces together in projects you can keep improving.</p></div></article></div>
-    </section>
-
-    <section class="quote"><span class="quote-mark">“</span><blockquote>The best way to learn what a block is?<br>Build something that uses one.</blockquote><p>A good rule for learning anything new.</p></section>
-
-    <section class="section journal" id="notes">
-      <div class="section-top"><div><p class="eyebrow">Notes from the lab</p><h2>Make sense of the new stuff.</h2><p>Friendly explainers for curious people who like to know how things work.</p></div><a class="under-link" href="#notes">Read all notes <span>↗</span></a></div>
-      <div class="journal-grid">
-        <article><a class="journal-image" href="#notes"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85" alt="Circuit board close up" loading="lazy"><span>BLOCKCHAIN, EXPLAINED</span></a><p class="date">5 MIN READ</p><h3>What actually happens when a block gets added?</h3><a class="read-link" href="#notes">Read the note ↗</a></article>
-        <article><a class="journal-image" href="#notes"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=900&q=85" alt="A screen showing code" loading="lazy"><span>CODE PRACTICE</span></a><p class="date">7 MIN READ</p><h3>How to get unstuck when your code breaks</h3><a class="read-link" href="#notes">Read the note ↗</a></article>
-        <article><a class="journal-image" href="#notes"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=85" alt="Green code on a screen" loading="lazy"><span>WEB3 BASICS</span></a><p class="date">6 MIN READ</p><h3>Wallets, keys, and the things worth protecting</h3><a class="read-link" href="#notes">Read the note ↗</a></article>
-      </div>
-    </section>
-
-    <section class="reviews"><div class="section-heading"><p class="eyebrow">Made for curious minds</p><h2>Progress feels better together.</h2><p>A few notes from people learning one build at a time.</p></div><div class="review-grid">
-      <article><div class="stars">★★★★★</div><blockquote>“I finally stopped jumping between random tutorials. The small projects helped me connect the dots.”</blockquote><p><strong>Jordan M.</strong><span>Learning JavaScript</span></p></article>
-      <article><div class="stars">★★★★★</div><blockquote>“Smart contracts felt intimidating. Building a tiny one made the ideas much easier to understand.”</blockquote><p><strong>Alex R.</strong><span>Exploring Solidity</span></p></article>
-      <article><div class="stars">★★★★★</div><blockquote>“I like that I can learn at my own pace and actually make things as I go.”</blockquote><p><strong>Casey L.</strong><span>Learning the basics</span></p></article>
-    </div></section>
-
-    <section class="newsletter"><div><p class="eyebrow">The occasional useful email</p><h2>Keep your curiosity switched on.</h2><p>New projects, clear explainers, and ideas worth trying. No spam.</p></div><form class="newsletter-form"><label class="visually-hidden" for="email">Email address</label><input id="email" type="email" placeholder="Your email address" required><button type="submit" aria-label="Subscribe">→</button><small>One thoughtful email at a time.</small></form></section>
   </main>
-
-  <footer class="footer"><div class="footer-main"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">B<span>.</span></span><span>blockwise</span></a><p>Learn the code. Explore the chain. Make something that’s yours.</p><div class="socials"><a href="#github" aria-label="GitHub">gh</a><a href="#discord" aria-label="Discord">dc</a><a href="#youtube" aria-label="YouTube">yt</a></div></div><div class="footer-col"><h3>Learn</h3><a href="#paths">Web development</a><a href="#paths">Smart contracts</a><a href="#paths">Blockchain basics</a><a href="#projects">Practice projects</a></div><div class="footer-col"><h3>Explore</h3><a href="#method">How it works</a><a href="#notes">Notes from the lab</a><a href="#projects">My learning lab</a><a href="mailto:hello@blockwise.example">Get in touch</a></div><div class="footer-col"><h3>The details</h3><a href="#footer">FAQs</a><a href="#footer">Accessibility</a><a href="#footer">Privacy</a><a href="#footer">Terms</a></div></div><div class="footer-bottom"><span>© <span id="year"></span> Blockwise</span><span>Made for the curious.</span><a href="#top">Back to the top ↑</a></div></footer>
   <div class="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
