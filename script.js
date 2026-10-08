@@ -25,8 +25,8 @@ if (loginForm) {
     message.textContent = ''
     message.classList.remove('error')
 
-    const userIsValid = username.value.trim().toLowerCase() === 'negin'
-    const passwordIsValid = password.value === 'negin'
+    const userIsValid = username.value.trim().toLowerCase() === 'samin'
+    const passwordIsValid = password.value === 'samin'
 
     if (!username.value.trim()) setError(usernameGroup, 'Enter your username.')
     if (!password.value) setError(passwordGroup, 'Enter your password.')
